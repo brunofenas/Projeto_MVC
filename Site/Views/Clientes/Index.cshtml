@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Site.Models.Cadastro>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Master/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"></h3>
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+
+                        <div class="input-group-btn">
+                            <a class="btn btn-primary" href="@Url.Action("Create", "Clientes")" style="float:right">Cadastro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Logradouro</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
+                        <th>Temperatura</th>
+                        <th>Ações</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-id="@Html.DisplayFor(modelItem => item.ID)" class="tr_@Html.DisplayFor(modelItem => item.ID)">
+                            <td>  @Html.DisplayFor(modelItem => item.ID)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.Nome)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.Logradouro)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.Cidade)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.UF)</td>
+                            <td>  @Html.DisplayFor(modelItem => item.Temperatura)</td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                               <a style="cursor:pointer" data-id="@Html.DisplayFor(modelItem => item.ID)" class="delete">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="7"> Nenhum item adicionado  </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>

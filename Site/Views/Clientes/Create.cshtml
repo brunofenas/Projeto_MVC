@@ -1,0 +1,92 @@
+﻿@model Site.Models.Cadastro
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Master/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Novo cadastro de cliente</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @placeholder = "Digite o nome", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CEP, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @placeholder = "Digite o CEP", @class = "form-control cep" } })
+                        @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Logradouro, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Logradouro, new { htmlAttributes = new { @placeholder = "Digite o Logradouro", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Logradouro, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @placeholder = "Digite o Número", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @placeholder = "Digite o Complemento", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @placeholder = "Digite o Bairro", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @placeholder = "Digite a Cidade", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UF, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.UF, new { htmlAttributes = new { @placeholder = "Digite o UF", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UF, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Temperatura, htmlAttributes: new { @class = "" })
+                        @Html.EditorFor(model => model.Temperatura, new { htmlAttributes = new { @placeholder = "Digite a Temperatura", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Temperatura, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <a style="float:left" class="btn btn-reddit" href="@Url.Action("Index","Clientes")">Voltar</a>
+                    <button type="submit" class="btn btn-primary" style="float:right">Salvar</button>
+                </div>
+
+            </div>
+            <!-- /.box -->
+        </div>
+        <!--/.col (left) -->
+    </div>
+}
+<!-- /.row -->
